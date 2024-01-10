@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <script>
+        const arr = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']
+        const mappedArr = arr.map(el=>`<div id='elem' style="border: 2px solid black; margin-top: 5px; padding: 10px">${el}</div>`)
+        document.getElementById('container').innerHTML = mappedArr.join('');
+let itter = 0;
+document.querySelectorAll('#elem')[0].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: red;"
+document.addEventListener('keydown',(e)=>{
+    if (e.code === 'ArrowDown' && itter < arr.length){
+        itter += 1;
+        if (itter > 0){
+            let prev = document.querySelectorAll('#elem')[itter - 1].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: black;"
+        }
+        const now = document.querySelectorAll('#elem')[itter].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: red;"
+       console.log(typeof document.querySelectorAll('#elem'))
+    }
+    else if (e.code === 'ArrowUp'){
+        itter -= 1;
+        if (itter !== 0 || itter == 0){
+            let prev = document.querySelectorAll('#elem')[itter + 1].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: black;"
+        }
+        document.querySelectorAll('#elem')[itter].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: red;"
+    } 
+})
+    </script>
+</body>
+</html>
