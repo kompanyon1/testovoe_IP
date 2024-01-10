@@ -16,21 +16,28 @@
 let itter = 0;
 document.querySelectorAll('#elem')[0].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: red;"
 document.addEventListener('keydown',(e)=>{
-    if (e.code === 'ArrowDown' && itter < arr.length){
-        itter += 1;
+    
+    if (e.code === 'ArrowDown'){
+            if (itter < arr.length -1){
+                itter += 1;
+            }
         if (itter > 0){
             let prev = document.querySelectorAll('#elem')[itter - 1].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: black;"
         }
         const now = document.querySelectorAll('#elem')[itter].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: red;"
        console.log(typeof document.querySelectorAll('#elem'))
+        
     }
     else if (e.code === 'ArrowUp'){
-        itter -= 1;
+        if (itter > 0) {
+            itter -= 1;
+        }
+        
         if (itter !== 0 || itter == 0){
             let prev = document.querySelectorAll('#elem')[itter + 1].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: black;"
         }
         document.querySelectorAll('#elem')[itter].style = "border: 2px solid black; margin-top: 5px; padding: 10px; border-color: red;"
-    } 
+    }
 })
     </script>
 </body>
